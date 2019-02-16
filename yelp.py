@@ -80,7 +80,7 @@ def summary_reviews(review_scores, num_reviews):
 	return output
 
 
-#Call functions
+#Input formatting
 restaurant = input("Input name of restaurant.  ")
 city = input("Input name of NYC borough.  ")
 
@@ -92,12 +92,16 @@ if city.lower() == 'manhattan':
 city = city.replace(' ', '-').lower()
 
 
+#Call functions
 reviews = extract_review("https://www.yelp.com/biz/" + restaurant + "-" + city)
 tokenize = tokenize(reviews)
 word_score = word_score(tokenize)
 review_scores = review_score(reviews, word_score, 60)
 summary_reviews(review_scores, 5)
 
+
+# if __name__ == "__main__":
+#     main()
 
 
 
